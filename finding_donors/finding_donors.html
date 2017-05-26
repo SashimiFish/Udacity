@@ -13424,97 +13424,7 @@ In the code block below, you will need to implement the following:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>41387    1
-35278    1
-26950    1
-29133    1
-41794    1
-39744    0
-32755    1
-6016     0
-43034    1
-12446    1
-36702    1
-15291    1
-5752     1
-11009    0
-17770    1
-4413     1
-26405    1
-2632     1
-38848    0
-36022    0
-9313     1
-3860     0
-22860    1
-42921    1
-31320    1
-3432     1
-36834    0
-26649    1
-84       1
-33113    1
-        ..
-22245    1
-44278    1
-33360    0
-26230    0
-21180    1
-6798     1
-33733    1
-35400    1
-42963    0
-6909     1
-16260    1
-21270    0
-29900    1
-5660     1
-20926    1
-19215    1
-31158    1
-14239    0
-20552    1
-16146    1
-40967    0
-32159    1
-22453    1
-15326    1
-5603     1
-33607    1
-15446    1
-6654     1
-34957    1
-9025     0
-Name: &lt;=50K, dtype: uint8</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import two metrics from sklearn - fbeta_score and accuracy_score</span>
@@ -13557,7 +13467,7 @@ Name: &lt;=50K, dtype: uint8</pre>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;pred_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
             
     <span class="c1"># TODO: Compute accuracy on the first 300 training samples</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">300</span><span class="p">,[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">predictions_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">300</span><span class="p">,[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">predictions_train</span><span class="p">)</span>
         
     <span class="c1"># TODO: Compute accuracy on test set</span>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;acc_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">predictions_test</span><span class="p">)</span>
@@ -13566,7 +13476,7 @@ Name: &lt;=50K, dtype: uint8</pre>
     <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">300</span><span class="p">,[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">predictions_train</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span>  
         
     <span class="c1"># TODO: Compute F-score on the test set</span>
-    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">ix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">predictions_test</span><span class="p">,</span><span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">300</span><span class="p">,[</span><span class="mi">0</span><span class="p">]],</span><span class="n">predictions_train</span><span class="p">,</span><span class="n">beta</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
        
     <span class="c1"># Success</span>
     <span class="k">print</span> <span class="s2">&quot;{} trained on {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
@@ -13582,7 +13492,7 @@ Name: &lt;=50K, dtype: uint8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">train_predict</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span> <span class="mi">300</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -13603,16 +13513,15 @@ Name: &lt;=50K, dtype: uint8</pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[54]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;acc_test&#39;: 0.77412935323383081,
+<pre>{&#39;acc_test&#39;: 0.77114427860696522,
  &#39;acc_train&#39;: 1.0,
- &#39;f_test&#39;: 0.77626391715736198,
  &#39;f_train&#39;: 1.0,
- &#39;pred_time&#39;: 0.011813879013061523,
- &#39;train_time&#39;: 0.005428791046142578}</pre>
+ &#39;pred_time&#39;: 0.008337974548339844,
+ &#39;train_time&#39;: 0.004387855529785156}</pre>
 </div>
 
 </div>
